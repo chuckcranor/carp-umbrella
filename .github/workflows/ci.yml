@@ -32,7 +32,8 @@ jobs:
       fail-fast: false
       matrix:
         build_type: [Debug, RelWithDebInfo]
-        compiler: [gcc-9, gcc-10, clang-10, clang-11]
+        #compiler: [gcc-9, gcc-10, clang-10, clang-11]
+        compiler: [clang-11]
         os: [ubuntu-latest]
         # can add include / exclude below to refine the matrix
 
@@ -103,6 +104,7 @@ jobs:
           echo VERSION CHECK
           mpicc --version
           mpirun --version
+          apt-cache search clang | egrep ^clang
 
       #
       # now we have everything we need, so we can configure our project
