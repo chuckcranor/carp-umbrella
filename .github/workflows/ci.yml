@@ -107,6 +107,15 @@ jobs:
           mpirun --version
           apt-cache search clang | egrep ^clang
 
+      - name: MPI check
+        run: |
+           echo 'project(foo)' > /tmp/CMakeLists.txt
+           echo 'cmake_minimum_required(VERSION 3.16)' >> /tmp/CMakeLists.txt
+           echo 'find_package (MPI MODULE)' >> /tmp/CMakeLists.txt
+           mkdir /tmp/TRY
+           cp /tmp/CMakeLists.txt /tmp/TRY
+           (cd /tmp/TRY ;cmake .)
+
       #
       # now we have everything we need, so we can configure our project
       #
