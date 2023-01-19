@@ -33,7 +33,7 @@ jobs:
       matrix:
         build_type: [Debug, RelWithDebInfo]
         #compiler: [gcc-9, gcc-10, clang-10, clang-11]
-        compiler: [clang-11]
+        compiler: [clang]
         os: [ubuntu-latest]
         # can add include / exclude below to refine the matrix
 
@@ -102,6 +102,7 @@ jobs:
           git --version
           printenv | egrep '^CI_'
           echo VERSION CHECK
+          cc --version
           mpicc --version
           mpirun --version
           apt-cache search clang | egrep ^clang
