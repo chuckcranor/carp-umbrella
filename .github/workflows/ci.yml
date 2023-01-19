@@ -102,7 +102,7 @@ jobs:
           git --version
           printenv | egrep '^CI_'
           echo VERSION CHECK
-          cc --version
+          $CI_CC --version
           mpicc --version
           mpirun --version
           apt-cache search clang | egrep ^clang
