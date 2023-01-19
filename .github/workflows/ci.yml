@@ -115,6 +115,10 @@ jobs:
            mkdir /tmp/TRY
            cp /tmp/CMakeLists.txt /tmp/TRY
            (cd /tmp/TRY ;env CC=$CI_CC CXX=$CI_CXX cmake .)
+           echo ERROR
+           cat `find /tmp/TRY -name CMakeError.log`
+           echo OUT
+           cat `find /tmp/TRY -name CMakeOutput.log`
 
       #
       # now we have everything we need, so we can configure our project
