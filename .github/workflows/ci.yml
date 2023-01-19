@@ -114,7 +114,7 @@ jobs:
            echo 'find_package (MPI MODULE)' >> /tmp/CMakeLists.txt
            mkdir /tmp/TRY
            cp /tmp/CMakeLists.txt /tmp/TRY
-           (cd /tmp/TRY ;cmake .)
+           (cd /tmp/TRY ;env CC=$CI_CC CXX=$CI_CXX cmake .)
 
       #
       # now we have everything we need, so we can configure our project
